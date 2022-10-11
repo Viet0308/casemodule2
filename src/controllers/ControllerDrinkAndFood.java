@@ -18,13 +18,19 @@ public class ControllerDrinkAndFood {
 
 
     public void them(){
-        System.out.println("Nhap id");
+        System.out.println("Enter id");
         String id = scanner.nextLine();
-        System.out.println("Nhap ten do uong hoac mon an");
+        for(int i=0;i<ListProduct.size();i++){
+            if(id.equals(ListProduct.get(i).getId())) {
+                System.out.println("ID was exist, Re-enter ID");
+                return;
+            }
+        }
+        System.out.println("Enter name of food or drink");
         String name = scanner.nextLine();
-        System.out.println("Nhap so luong");
+        System.out.println("Enter amount");
         int amount = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhap gia san pham");
+        System.out.println("Enter price");
         double price = Double.parseDouble(scanner.nextLine());
 
         DrinkandFood drinkandFood = new DrinkandFood(id,name,amount,price);
@@ -40,7 +46,7 @@ public class ControllerDrinkAndFood {
     }
 
     public void delete(){
-        System.out.println("nhap id can xoa");
+        System.out.println("Enter ID to delete");
         String id = scanner.nextLine();
         for ( int i = 0;i<ListProduct.size();i++){
             if(id.equals(ListProduct.get(i).getId())){
@@ -48,11 +54,11 @@ public class ControllerDrinkAndFood {
             }
             return;
         }
-        System.out.println("Khong tim thay san pham");
+        System.out.println("Can not find product");
     }
 
     public void change(){
-        System.out.println("nhap id can sua");
+        System.out.println("Enter ID to change");
         String id = scanner.nextLine();
         for (int i = 0; i<ListProduct.size(); i++){
             if(id.equals(ListProduct.get(i).getId())){

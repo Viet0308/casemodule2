@@ -19,9 +19,8 @@ public class Order {
 
     public void chon() {
         controllerDrinkAndFood.show();
-        System.out.println("lua chon");
+        System.out.println("Choice");
         String c = scanner.nextLine();
-
 
         int i = 0;
         while (i < ListProduct.size()) {
@@ -40,11 +39,11 @@ public class Order {
             sum += orders.get(i).getPrice();
             i++;
         }
-        System.out.println("Ban mat " + sum + " $");
+        System.out.println("Total price " + sum + " $");
     }
 
     public void xoa() {
-        System.out.println("nhap id mon muon xoa");
+        System.out.println("Enter ID need to remove of Oders");
         String id = scanner.nextLine();
         for (int i = 0; i < orders.size(); i++) {
             if (id.equals(orders.get(i).getId())) {
@@ -52,6 +51,6 @@ public class Order {
             }
             return;
         }
-        System.out.println("Khong tim thay san pham");
+        System.out.println("Cannot find product");
     }
 }

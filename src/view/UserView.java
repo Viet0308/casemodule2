@@ -15,9 +15,9 @@ public class UserView {
         while (true) {
 
             System.out.println("---------Menu Account---------");
-            System.out.println("1.Chon mon");
-            System.out.println("2.Xoa mon");
-            System.out.println("3.Tinh tien");
+            System.out.println("1.Choose product");
+            System.out.println("2.Delete product of Orders");
+            System.out.println("3.Get your payment");
             System.out.println("4.Exit");
             try {
                 choice = Integer.parseInt(scanner.nextLine());

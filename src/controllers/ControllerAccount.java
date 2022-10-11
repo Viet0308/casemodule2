@@ -3,6 +3,7 @@ import io.ReadAndWrite;
 import models.Account;
 import models.admin;
 import models.user;
+import validate.*;
 import view.AccountView;
 import java.io.File;
 import java.util.ArrayList;
@@ -42,14 +43,21 @@ public class ControllerAccount {
 //    }
 
     public void addAcc(){
-        System.out.println("Nhap ten");
-        String name = scanner.nextLine();
-        System.out.println("Nhap ten account");
+        System.out.println("Enter your name");
+        String name = Validate.validateName();
+        System.out.println("Enter your userName");
         String userName = scanner.nextLine();
-        System.out.println("Nhap mat khau");
-        String passWord = scanner.nextLine();
-        System.out.println("Nhap email");
-        String email = scanner.nextLine();
+        for(int i=0; i<ListAccount.size();i++){
+            if(userName.equals(ListAccount.get(i).getUserName())){
+                System.out.println("userName is exist, re-enter different userName");
+                return;
+            }
+        }
+        System.out.println("Enter your password");
+        String passWord = Validate.validatepassWord();
+        System.out.println("Enter your email");
+        String email = Validate.validateEmail();
+
 
         Account account = new Account(name,userName,passWord,email);
         ListAccount.add(account);
@@ -57,17 +65,17 @@ public class ControllerAccount {
     }
 
     public void editAcc(){
-        System.out.println("nhap ten account can sua");
+        System.out.println("Enter userName need to be change");
         String userName = scanner.nextLine();
         for ( int i=0; i<ListAccount.size();i++){
             if(userName.equals(ListAccount.get(i).getUserName())){
-                System.out.println("nhap ten");
+                System.out.println("Enter your name");
                 ListAccount.get(i).getName();
-                System.out.println("nhap email");
+                System.out.println("Enter your Email");
                 ListAccount.get(i).getEmail();
-                System.out.println("nhap username");
+                System.out.println("Enter your username");
                 ListAccount.get(i).getUserName();
-                System.out.println("nhap password");
+                System.out.println("Enter password");
                 ListAccount.get(i).getPassWord();
             }
         }
