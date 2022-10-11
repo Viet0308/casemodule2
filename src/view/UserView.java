@@ -1,9 +1,13 @@
 package view;
 
+import controllers.Order;
+
 import java.util.Scanner;
 
 public class UserView {
     Scanner scanner = new Scanner(System.in);
+
+    Order order = new Order();
 
     public int menuUser() {
         int choice = 0;
@@ -22,31 +26,21 @@ public class UserView {
             }
 
 
-        switch (choice) {
-            case 1:
-                chon();
-                break;
-            case 2:
-                xoa();
-                break;
-            case 3:
-                tien();
-                break;
-            case 4:
-                System.exit(0);
-                break;
+            switch (choice) {
+                case 1:
+                    order.chon();
+                    break;
+                case 2:
+                    order.xoa();
+                    break;
+                case 3:
+                    order.tien();
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+            }
         }
-    }
-
-}
-
-    private void tien() {
-    }
-
-    private void xoa() {
-    }
-
-    private void chon() {
     }
 
 }

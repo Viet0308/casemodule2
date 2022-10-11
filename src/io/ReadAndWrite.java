@@ -6,15 +6,14 @@ import java.util.ArrayList;
 
 
 public class ReadAndWrite<E> {
-    public void write(ArrayList<E> list, String path) {
-        File file = new File(path);
+    public void write(ArrayList<E> list, File file) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(list);
             objectOutputStream.close();
             fileOutputStream.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -24,10 +23,12 @@ public class ReadAndWrite<E> {
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            return (ArrayList<E>) objectInputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+            ArrayList<E> list = (ArrayList<E>) objectInputStream.readObject();
+            return list;
+        } catch (Exception e) {
             System.err.println("Error!!!");
+            return new ArrayList<>();
         }
-        return new ArrayList<>();
+
     }
 }

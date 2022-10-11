@@ -1,6 +1,7 @@
 package controllers;
 import io.ReadAndWrite;
 import models.Account;
+import models.admin;
 import models.user;
 import view.AccountView;
 import java.io.File;
@@ -13,30 +14,32 @@ public class ControllerAccount {
     ReadAndWrite readAndWrite = new ReadAndWrite();
     ArrayList<Account> ListAccount = readAndWrite.read(file);
 
-    AccountView accountView = new AccountView();
 
-    public void Login() {
-        System.out.println("Moi ban nhap ten dang nhap");
-        String name = scanner.nextLine();
-        System.out.println("nhap password");
-        String pass = scanner.nextLine();
-        int i = 0;
-        while (i < ListAccount.size()) {
-            if (name == ListAccount.get(i).getUserName() && pass == ListAccount.get(i).getPassWord()) {
-                if (ListAccount.get(i) instanceof user) {
-
-                } else {
-                    accountView.menuAccount();
-//                    quanlyuser, san pham
-                }
-            } else {
-                System.out.println("Nhap lai");
-                Login();
-                return;
-            }
-            i++;
-        }
-    }
+//    public void Login() {
+////         public admin(String name, String userName, String passWord, String email, String rights, String permission
+//        ListAccount.add(new admin("viet","viet1234","123456","viet1234@gmail.com","admin"));
+//        readAndWrite.write(ListAccount,file);
+//        System.out.println("Moi ban nhap ten dang nhap");
+//        String name = scanner.nextLine();
+//        System.out.println("nhap password");
+//        String pass = scanner.nextLine();
+//        int i = 0;
+//        while (i < ListAccount.size()) {
+//            if (name == ListAccount.get(i).getUserName() && pass == ListAccount.get(i).getPassWord()) {
+//                if (ListAccount.get(i) instanceof admin) {
+//                    accountView.menuAccount();
+//                } else {
+//
+////                    quanlyuser, san pham
+//                }
+//            } else {
+//                System.out.println("Nhap lai");
+//                Login();
+//                return;
+//            }
+//            i++;
+//        }
+//    }
 
     public void addAcc(){
         System.out.println("Nhap ten");
@@ -50,7 +53,7 @@ public class ControllerAccount {
 
         Account account = new Account(name,userName,passWord,email);
         ListAccount.add(account);
-        readAndWrite.write(ListAccount,"Account.txt");
+        readAndWrite.write(ListAccount,file);
     }
 
     public void editAcc(){

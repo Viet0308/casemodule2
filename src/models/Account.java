@@ -12,15 +12,16 @@ public class Account implements Serializable {
     public Account() {
     }
 
-    public Account(String name, String userName, String passWord, String email, String rights) {
+    public Account(String name, String userName, String passWord, String email) {
         this.name = name;
         this.userName = userName;
         this.passWord = passWord;
         this.email = email;
     }
 
-    public Account(String name, String userName, String passWord, String email) {
+    public Account(String name, String userName, String passWord, String email, String rights) {
     }
+
 
     public String getName() {
         return name;

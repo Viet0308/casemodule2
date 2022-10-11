@@ -1,11 +1,15 @@
 package view;
 
+import controllers.ControllerAccount;
+
 import java.util.Scanner;
 
 import static java.nio.file.Files.delete;
 
 public class AccountView {
     Scanner scanner = new Scanner(System.in);
+
+    ControllerAccount controllerAccount = new ControllerAccount();
     public void menuAccount(){
         int choice = 0;
         
@@ -23,16 +27,16 @@ public class AccountView {
             }
                 switch (choice){
                     case 1:
-                        addAcc();
+                        controllerAccount.addAcc();
                         break;
                     case 2:
-                        editAcc();
+                        controllerAccount.editAcc();
                         break;
                     case 3:
-                        delete();
+                        controllerAccount.delete();
                         break;
                     case 4:
-                        show1();
+                        controllerAccount.show1();
                         break;
                     case 5:
                         System.exit(0);
@@ -40,17 +44,5 @@ public class AccountView {
                         
                 }
         }
-    }
-
-    private void show1() {
-    }
-
-    private void delete() {
-    }
-
-    private void editAcc() {
-    }
-
-    private void addAcc() {
     }
 }

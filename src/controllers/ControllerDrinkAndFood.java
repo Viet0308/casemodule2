@@ -29,7 +29,7 @@ public class ControllerDrinkAndFood {
 
         DrinkandFood drinkandFood = new DrinkandFood(id,name,amount,price);
         ListProduct.add(drinkandFood);
-        readAndWrite.write(ListProduct, "D&F.txt");
+        readAndWrite.write(ListProduct, file);
 
     }
 
