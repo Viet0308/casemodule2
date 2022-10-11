@@ -9,7 +9,7 @@ public class UserView {
 
     Order order = new Order();
 
-    public int menuUser() {
+    public void menuUser() {
         int choice = 0;
 
         while (true) {
@@ -20,7 +20,7 @@ public class UserView {
             System.out.println("3.Tinh tien");
             System.out.println("4.Exit");
             try {
-                Integer.parseInt(scanner.nextLine());
+                choice = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
                 System.err.println("Please enter number");
             }
@@ -37,8 +37,7 @@ public class UserView {
                     order.tien();
                     break;
                 case 4:
-                    System.exit(0);
-                    break;
+                    return;
             }
         }
     }

@@ -16,36 +16,38 @@ public class Order {
     ArrayList<DrinkandFood> orders = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
-    public void chon(){
+
+    public void chon() {
         controllerDrinkAndFood.show();
         System.out.println("lua chon");
         String c = scanner.nextLine();
 
 
-
-        int i= 0;
-        while (i<ListProduct.size()){
-            if (c.equals(ListProduct.get(i).getId())){
+        int i = 0;
+        while (i < ListProduct.size()) {
+            if (c.equals(ListProduct.get(i).getId())) {
                 orders.add(ListProduct.get(i));
             }
             i++;
         }
     }
 
-    public void tien(){
-        double sum =0;
-        int i =0;
-        while (i< orders.size()){
-           sum +=  orders.get(i).getPrice();
+    public void tien() {
+        double sum = 0;
+        int i = 0;
+        while (i < orders.size()) {
+            System.out.println(orders.get(i).toString());
+            sum += orders.get(i).getPrice();
             i++;
         }
+        System.out.println("Ban mat " + sum + " $");
     }
 
-    public void xoa(){
+    public void xoa() {
         System.out.println("nhap id mon muon xoa");
         String id = scanner.nextLine();
-        for(int i=0; i<orders.size();i++){
-            if(id.equals(orders.get(i).getId())) {
+        for (int i = 0; i < orders.size(); i++) {
+            if (id.equals(orders.get(i).getId())) {
                 orders.remove(i);
             }
             return;

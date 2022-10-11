@@ -8,7 +8,7 @@ public class DrinkAndFoodView {
     Scanner scanner = new Scanner(System.in);
     ControllerDrinkAndFood controllerDrinkAndFood = new ControllerDrinkAndFood();
 
-    public int menuDrinkAndFood() {
+    public void menuDrinkAndFood() {
         while (true) {
             int choice = 0;
 
@@ -22,7 +22,7 @@ public class DrinkAndFoodView {
 
 
                 try {
-                    Integer.parseInt(scanner.nextLine());
+                    choice = Integer.parseInt(scanner.nextLine());
                 } catch (Exception e) {
                     System.err.println("Please enter number");
                 }
@@ -40,8 +40,7 @@ public class DrinkAndFoodView {
                         controllerDrinkAndFood.show();
                         break;
                     case 5:
-                        System.exit(0);
-                        break;
+                        return;
                 }
             }
         }

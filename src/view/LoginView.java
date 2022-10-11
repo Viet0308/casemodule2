@@ -17,6 +17,7 @@ public class LoginView {
     ReadAndWrite readAndWrite = new ReadAndWrite();
     ArrayList<Account> ListAccount = readAndWrite.read(file);
     AccountView accountView = new AccountView();
+    UserView userView = new UserView();
 
     public void LoginView() {
         int choice = 0;
@@ -61,13 +62,12 @@ public class LoginView {
                 if (ListAccount.get(i) instanceof admin) {
                     accountView.menuAccount();
                 } else {
-//                    quanlyuser, san pham
+                    userView.menuUser();
                 }
             }
             i++;
         }
-        System.out.println("Nhap lai");
-        Login();
+        System.out.println("Nhap sai");
     }
     public void addAcc(){
         System.out.println("Nhap ten");
