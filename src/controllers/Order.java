@@ -17,18 +17,23 @@ public class Order {
 
     Scanner scanner = new Scanner(System.in);
 
+
     public void chon() {
         controllerDrinkAndFood.show();
-        System.out.println("Choice");
+        System.out.println("Pick ID for add to cart");
         String c = scanner.nextLine();
+        System.out.println("Enter your amount");
+        int a = Integer.parseInt(scanner.nextLine());
 
         int i = 0;
         while (i < ListProduct.size()) {
             if (c.equals(ListProduct.get(i).getId())) {
-                orders.add(ListProduct.get(i));
+                DrinkandFood drinkandFood = new DrinkandFood(ListProduct.get(i).getId(),ListProduct.get(i).getName(),a,ListProduct.get(i).getPrice());
+                orders.add(drinkandFood);
+                ListProduct.get(i).setAmount(ListProduct.get(i).getAmount()-a);
             }
             i++;
-        }
+        }readAndWrite.write(ListProduct,file);
     }
 
     public void tien() {
@@ -36,7 +41,7 @@ public class Order {
         int i = 0;
         while (i < orders.size()) {
             System.out.println(orders.get(i).toString());
-            sum += orders.get(i).getPrice();
+            sum += orders.get(i).getPrice()*orders.get(i).getAmount();
             i++;
         }
         System.out.println("Total price " + sum + " $");
@@ -52,5 +57,10 @@ public class Order {
             return;
         }
         System.out.println("Cannot find product");
+    }
+    public void show(){
+        for (DrinkandFood df : orders){
+            System.out.println(df);
+        }
     }
 }

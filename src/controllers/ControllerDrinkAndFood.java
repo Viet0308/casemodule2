@@ -40,6 +40,7 @@ public class ControllerDrinkAndFood {
     }
 
     public void show(){
+        ListProduct = readAndWrite.read(file);
         for (DrinkandFood x:ListProduct) {
             System.out.println(x.toString());
         }

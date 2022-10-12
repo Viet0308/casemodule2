@@ -15,10 +15,11 @@ public class UserView {
         while (true) {
 
             System.out.println("---------Menu Account---------");
-            System.out.println("1.Choose product");
-            System.out.println("2.Delete product of Orders");
-            System.out.println("3.Get your payment");
-            System.out.println("4.Exit");
+            System.out.println("1.Menu pruducts & add to cart");
+            System.out.println("2.See your cart");
+            System.out.println("3.Delete product of cart");
+            System.out.println("4.Get your payment");
+            System.out.println("5.Exit");
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
@@ -31,12 +32,15 @@ public class UserView {
                     order.chon();
                     break;
                 case 2:
-                    order.xoa();
+                    order.show();
                     break;
                 case 3:
-                    order.tien();
+                    order.xoa();
                     break;
                 case 4:
+                    order.tien();
+                    break;
+                case 5:
                     return;
             }
         }
