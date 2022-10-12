@@ -19,14 +19,15 @@ public class ReadAndWrite<E> {
     }
 
     public ArrayList<E> read(File file){
-
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             ArrayList<E> list = (ArrayList<E>) objectInputStream.readObject();
+            fileInputStream.close();
+            objectInputStream.close();
             return list;
         } catch (Exception e) {
-            System.err.println("Error!!!");
+            System.err.println("Read error!!!");
             return new ArrayList<>();
         }
 

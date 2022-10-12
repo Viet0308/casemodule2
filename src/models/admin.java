@@ -1,6 +1,8 @@
 package models;
 
-public class admin extends Account{
+import java.io.Serializable;
+
+public class admin extends Account implements Serializable {
     private String permission;
 
     public admin(String permission) {

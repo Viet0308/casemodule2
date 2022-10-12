@@ -11,12 +11,11 @@ import java.util.Scanner;
 
 public class LoginView {
     Scanner scanner = new Scanner(System.in);
-
     ControllerAccount controllerAccount = new ControllerAccount();
     File file = new File("Account.txt");
     ReadAndWrite readAndWrite = new ReadAndWrite();
-    ArrayList<Account> ListAccount = readAndWrite.read(file);
-    AccountView accountView = new AccountView();
+//    ArrayList<Account> ListAccount = readAndWrite.read(file);
+    AccountView accountView;
     UserView userView;
 
     public void LoginView() {
@@ -49,19 +48,20 @@ public class LoginView {
         }
     }
     public void Login() {
-//         public admin(String name, String userName, String passWord, String email, String rights, String permission
-//        ListAccount.add(new admin("viet","viet1234","123456","viet1234@gmail.com","admin"));
-        readAndWrite.write(ListAccount,file);
-        System.out.println("Enter your name");
+//        public admin(String name, String userName, String passWord, String email, String rights, String permission
+//        controllerAccount.getListAccount().add(new admin("viet","viet1234","123456","viet1234@gmail.com","admin"));
+//        readAndWrite.write(controllerAccount.getListAccount(),file);
+        System.out.println("Enter your userName");
         String name = scanner.nextLine();
         System.out.println("Enter your password");
         String pass = scanner.nextLine();
         int i = 0;
         boolean checkTK = false;
-        while (i < ListAccount.size()) {
-            if (name.equals(ListAccount.get(i).getUserName()) && pass.equals(ListAccount.get(i).getPassWord())) {
+        while (i < controllerAccount.getListAccount().size()) {
+            if (name.equals(controllerAccount.getListAccount().get(i).getUserName()) && pass.equals(controllerAccount.getListAccount().get(i).getPassWord())) {
                 checkTK = true;
-                if (ListAccount.get(i) instanceof admin) {
+                if (controllerAccount.getListAccount().get(i) instanceof admin) {
+                    accountView = new AccountView();
                     accountView.menuAccount();
                 } else {
                     userView = new UserView();
@@ -73,7 +73,6 @@ public class LoginView {
         if (checkTK == false){
             System.out.println("Wrong ID or PassWord, please contact Admin for more information");
         }
-
     }
 //    public void addAcc(){
 //        System.out.println("Nhap ten");

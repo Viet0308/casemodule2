@@ -15,8 +15,11 @@ public class ControllerAccount {
     ReadAndWrite readAndWrite = new ReadAndWrite();
     ArrayList<Account> ListAccount = readAndWrite.read(file);
 
+    public ArrayList<Account> getListAccount() {
+        return ListAccount;
+    }
 
-//    public void Login() {
+    //    public void Login() {
 ////         public admin(String name, String userName, String passWord, String email, String rights, String permission
 //        ListAccount.add(new admin("viet","viet1234","123456","viet1234@gmail.com","admin"));
 //        readAndWrite.write(ListAccount,file);
@@ -58,13 +61,13 @@ public class ControllerAccount {
         System.out.println("Enter your email");
         String email = Validate.validateEmail();
 
-
         Account account = new Account(name,userName,passWord,email);
         ListAccount.add(account);
         readAndWrite.write(ListAccount,file);
     }
 
     public void editAcc(){
+        ListAccount = readAndWrite.read(file);
         System.out.println("Enter userName need to be change");
         String userName = scanner.nextLine();
         for ( int i=0; i<ListAccount.size();i++){

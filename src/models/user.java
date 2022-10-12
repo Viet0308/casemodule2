@@ -1,6 +1,8 @@
 package models;
 
-public class user extends Account {
+import java.io.Serializable;
+
+public class user extends Account implements Serializable {
     private String order;
 
     public user(String order) {
